@@ -48,10 +48,5 @@ legenda-nusantara/
   Kyai Tunggul Wulung) belum punya artikel sendiri.
 - 🚧 Form login, register, dan kolom komentar baru tampilan (belum terhubung ke backend/database).
 
-## Riwayat perbaikan
-Struktur di ZIP ini sudah dirapikan dari folder kerja aslinya (link absolut yang rusak,
-gambar yang path-nya salah folder, dsb). Detail lengkap perbaikannya ada di
-[`CATATAN-PERBAIKAN.md`](./CATATAN-PERBAIKAN.md).
-
 ## Tim
 Kelompok 14 — Mas Falich Ahmad, Muhammad Fahrizal Ramadhan, Ibnu Royhan Firdausy.
