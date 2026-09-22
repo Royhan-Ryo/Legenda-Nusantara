@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legenda Nusantara</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <script src="assets/js/bootstrap.js"></script>
+    <style>
+      body {
+        background-image: url(assets/img/home/bgai.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .mt-x {
+        margin-top: 6rem;
+      }
+      .side1 {
+        flex: 1 1 60%;
+        margin-right: 5%;
+      }
+      .side2 {
+        flex: 0 0 25%;
+      }
+      .btn.bg-dark-subtle {
+        border: 2px solid black;
+        border-radius: 12px;
+        padding: 6px 16px;
+      }
+      .header {
+        position: relative;
+        display: block;
+        overflow: visible;
+        z-index: 1000;
+      }
+      .dropdown-menu {
+        z-index: 1001;
+      }
+
+      .header__inner {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 2rem;
+        padding: 10px 0 10px;
+        width: 100%;
+      }
+
+      .web-title {
+        margin-bottom: 10px;
+        font-size: 60px;
+        font-family: baskerville;
+        color: #53483d;
+        -webkit-text-stroke: 3px #998585;
+      }
+
+      .nav-pills {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.72rem 1.05rem;
+        border-radius: 12px;
+        background: #efc60e;
+        color: #2a1900;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid rgba(139, 87, 0, 0.35);
+        transition:
+          transform 0.5s ease,
+          filter 0.2s ease;
+      }
+      .pill:hover {
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+        background-color: #fad170;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 270px 1fr;
+        gap: 38px;
+        padding: 38px 0 54px;
+      }
+      .main-content {
+        box-shadow: 0 -10px 25px 10px rgba(0, 0, 0, 0.3);
+        background-image: url(assets/img/home/papps.jpg);
+      }
+      .slidown {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #53483d;
+        z-index: 999;
+        padding-top: 380px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        transition: transform 0.4s ease-in-out;
+        visibility: hidden;
+      }
+      .slidown.is-open {
+        /* 3. When open, move it back to its original position (top: 0) */
+        transform: translateY(0);
+        visibility: visible;
+      }
+      .frow {
+        display: flex;
+        flex-direction: row;
+        gap: 75px;
+        margin-left: -52px;
+      }
+      .fcol {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .halButt {
+        background-color: #efc60e;
+        text-align: center;
+        padding: 5px 0px 5px;
+        border: #2a1900;
+        border-style: solid;
+        border-radius: 20px;
+      }
+      .halButt:hover {
+        background-color: #fad170;
+      }
+      .haltex {
+        text-decoration: none;
+        color: #2a1900;
+        font-family: baskerville;
+      }
+      .tentang {
+        margin: 100px 100px 100px 100px;
+        border-color: #2a1900;
+        border-radius: 12px;
+        border-style: solid;
+        background-color: #fad170;
+      }
+      .contacts {
+        background-color: black;
+        width: 100%;
+        padding: 10px 10px 10px 10px;
+        color: white;
+        margin-top: 40px;
+      }
+      .pintuFrame {
+        width: 220px;
+        height: 400px;
+        background-color: #2a1900;
+        border-radius: 13px;
+      }
+      .pintuP {
+        width: 200px;
+        height: 380px;
+        background-color: aliceblue;
+        position: relative;
+        top: 10px;
+        left: 10px;
+        display: grid;
+      }
+      .pintunya {
+        width: 190px;
+        height: 370px;
+        background-color: #2a1900;
+        position: relative;
+        top: 5px;
+        left: 5px;
+        grid-area: 1 / 1;
+        overflow: hidden;
+        display: grid;
+        transition: opacity 0.5s;
+      }
+      .pintunya.buka {
+        opacity: 0;
+      }
+      .pinDiag {
+        background-color: #362100;
+        rotate: 30deg;
+        position: absolute;
+        grid-area: 1 / 1;
+        left: 20px;
+        bottom: -35px;
+        width: 150px;
+        height: 500px;
+      }
+      .ggPin {
+        background-color: #efc60e;
+        border-radius: 50px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 170px;
+        left: 150px;
+      }
+      .pinEng {
+        background-color: #efc60e;
+        width: 40px;
+        height: 25px;
+        position: absolute;
+        grid-area: 1 / 1;
+        z-index: 1010;
+        left: -10px;
+      }
+      .batbaw1 {
+        background-color: #2a1900;
+        width: 100%;
+        height: 10px;
+        margin-top: 10px;
+        border-radius: 15px;
+      }
+      .batbaw3 {
+        background-color: #2a1900;
+        width: 100%;
+        height: 10px;
+        border-radius: 10px;
+      }
+      .illus {
+        height: 80px;
+        width: 120px;
+        border-style: solid;
+        border-color: #53483d;
+        border-width: 5px;
+      }
+      .illusdiv {
+        z-index: 1009;
+        position: relative;
+        top: 20px;
+        left: 40px;
+      }
+      .batbaw2 {
+        background-color: #efc60e;
+        width: 100%;
+        height: 5px;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" style="background-color: #2a1900">
+      <div
+        id="cars"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="5000"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#cars"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#cars"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#cars"
+            data-bs-slide-to="2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#cars"
+            data-bs-slide-to="3"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="assets/img/home/wayang-1.jpg"
+              alt="tut"
+              class="d-block"
+              style="width: 100%; height: 250px"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/img/home/wayang-2.jpg"
+              alt="io"
+              class="d-block"
+              style="width: 100%; height: 250px"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/img/home/wayang-3.webp"
+              alt="io"
+              class="d-block"
+              style="width: 100%; height: 250px"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/img/home/wayang-4.jpg"
+              alt="io"
+              class="d-block"
+              style="width: 100%; height: 250px"
+            />
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#cars"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#cars"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+      <div></div>
+
+      <div class="header__inner container">
+        <h1 class="web-title">
+          <b><i>Legenda Nusantara</i></b>
+        </h1>
+
+        <nav class="nav-pills" aria-label="Utama">
+          <a class="pill" href="#" id="halTogl">
+            <span>Halaman</span><span class="caret" aria-hidden="true">▾</span>
+          </a>
+          <a class="pill" href="kontak.html">Kontak</a>
+          <a class="pill" href="#" id="sclButt">Tentang</a>
+          <a class="pill" href="login.html">Login</a>
+          <a class="pill" href="register.html">Register</a>
+        </nav>
+      </div>
+    </header>
+
+    <div id="halPanl" class="slidown">
+      <div class="container">
+        <div class="frow">
+          <div class="fcol">
+            <a href="jawa/index.html">
+              <div class="halButt haltex">Sumatera</div>
+            </a>
+
+            <div>
+              <a href="jawa/index.html" class="pintuLink"
+                ><div class="pintuFrame">
+                  <div class="pintuP">
+                    <div class="pinEng" style="top: 50px"></div>
+                    <div class="pinEng" style="top: 80px"></div>
+                    <div class="pinEng" style="top: 270px"></div>
+                    <div class="pinEng" style="top: 300px"></div>
+                    <div class="pintunya">
+                      <div class="illusdiv">
+                        <img
+                          src="assets/img/home/daerah/indsum.jpg"
+                          class="illus"
+                        />
+                      </div>
+                      <div class="pinDiag"></div>
+                      <div class="ggPin"></div>
+                    </div>
+                  </div></div
+              ></a>
+            </div>
+          </div>
+          <div class="fcol">
+            <a href="jawa/index.html" class="pintuLink">
+              <div class="halButt haltex">Jawa</div>
+            </a>
+
+            <div>
+              <a href="jawa/index.html"
+                ><div class="pintuFrame">
+                  <div class="pintuP">
+                    <div class="pinEng" style="top: 50px"></div>
+                    <div class="pinEng" style="top: 80px"></div>
+                    <div class="pinEng" style="top: 270px"></div>
+                    <div class="pinEng" style="top: 300px"></div>
+                    <div class="pintunya">
+                      <div class="illusdiv">
+                        <img
+                          class="illus"
+                          src="assets/img/home/daerah/jawa.jpg"
+                        />
+                      </div>
+                      <div class="pinDiag"></div>
+                      <div class="ggPin"></div>
+                    </div>
+                  </div></div
+              ></a>
+            </div>
+          </div>
+          <div class="fcol">
+            <a href="jawa/index.html" class="pintuLink">
+              <div class="halButt haltex">Kalimantan</div>
+            </a>
+
+            <div>
+              <a href="jawa/index.html"
+                ><div class="pintuFrame">
+                  <div class="pintuP">
+                    <div class="pinEng" style="top: 50px"></div>
+                    <div class="pinEng" style="top: 80px"></div>
+                    <div class="pinEng" style="top: 270px"></div>
+                    <div class="pinEng" style="top: 300px"></div>
+                    <div class="pintunya">
+                      <div class="illusdiv">
+                        <img
+                          class="illus"
+                          src="assets/img/home/daerah/indkal.jpg"
+                        />
+                      </div>
+                      <div class="pinDiag"></div>
+                      <div class="ggPin"></div>
+                    </div>
+                  </div></div
+              ></a>
+            </div>
+          </div>
+          <div class="fcol">
+            <a href="jawa/index.html">
+              <div class="halButt haltex">Sulawesi</div>
+            </a>
+
+            <div>
+              <a href="jawa/index.html" class="pintuLink"
+                ><div class="pintuFrame">
+                  <div class="pintuP">
+                    <div class="pinEng" style="top: 50px"></div>
+                    <div class="pinEng" style="top: 80px"></div>
+                    <div class="pinEng" style="top: 270px"></div>
+                    <div class="pinEng" style="top: 300px"></div>
+                    <div class="pintunya">
+                      <div class="illusdiv">
+                        <img
+                          src="assets/img/home/daerah/indsul.jpg"
+                          class="illus"
+                        />
+                      </div>
+                      <div class="pinDiag"></div>
+                      <div class="ggPin"></div>
+                    </div>
+                  </div></div
+              ></a>
+            </div>
+          </div>
+          <div class="fcol">
+            <a href="jawa/index.html" class="pintuLink">
+              <div class="halButt haltex">Papua</div>
+            </a>
+
+            <div>
+              <a href="jawa/index.html"
+                ><div class="pintuFrame">
+                  <div class="pintuP">
+                    <div class="pinEng" style="top: 50px"></div>
+                    <div class="pinEng" style="top: 80px"></div>
+                    <div class="pinEng" style="top: 270px"></div>
+                    <div class="pinEng" style="top: 300px"></div>
+                    <div class="pintunya">
+                      <div class="illusdiv">
+                        <img
+                          class="illus"
+                          src="assets/img/home/daerah/indpap.jpg"
+                        />
+                      </div>
+                      <div class="pinDiag"></div>
+                      <div class="ggPin"></div>
+                    </div>
+                  </div></div
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="batbaw1"></div>
+      <div class="batbaw2"></div>
+      <div class="batbaw3"></div>
+    </div>
+    <br />
+    <br />
+    <section class="d-flex justify-content-center">
+      <div
+        class="mt-x me-5 ms-5 main-content"
+        id="bodymain"
+        style="height: 3000px; width: 1190px"
+      >
+        <div
+          class="d-flex justify-content-center"
+          style="top: -35px; position: relative"
+        >
+          <div
+            style="
+              background-color: #efc60e;
+              width: 750px;
+              height: 100px;
+              border-radius: 25px;
+              box-shadow: 0 -20px 20px 0px rgba(0, 0, 0, 0.2);
+              border-color: #2a1900;
+              border-style: double;
+              border-width: 5px;
+            "
+          >
+            <h1 class="web-title mt-2" style="text-align: center">
+              Legenda Nusantara
+            </h1>
+          </div>
+        </div>
+        <div class="container mt-4 d-flex justify-content-center">
+          <div style="width: 90%; max-width: 1000px; display: flex">
+            <div class="side1">
+              <p>
+                Mitologi Indonesia adalah istilah untuk menyebutkan mitologi di
+                Indonesia (ya iya lah bang). Mitologi Indonesia biasanya
+                dipenuhi oleh nilai-nilai dan petuah kehidupan. Sebagai
+                mitologi, sangatlah umum kalau diceritakan dari mulut ke mulut.
+                Mengenai proses penyampaiannya, sudah pasti akan ada beberapa
+                versi dari satu mitologi. Umumnya mitologi Indonesia memuat
+                kisah keadaan awal dunia, kisah dewa-dewi dan makhluk
+                supranatural, dan kisah asal mula sesuatu.
+              </p>
+              <p>
+                Dengan Indonesia sebagai pusat perdangangan pada masa lalu,
+                pedagang Buddha dan Hindu ikut menyebarkan agamanya. Dalam
+                perdagangan dan penyebaran agama inilah Indonesia mengadaptasi
+                budaya luar. Bukti pengaruh tersebut dapat disimak hingga masa
+                kini, baik dari istilah maupun cerita. Beberapa istilah di
+                Indonesia, seperti "batara", "dewa", "bidadari", "raksasa",
+                merupakan kata-kata dari bahasa Sanskerta yang dipengaruhi oleh
+                mitologi Hindu dan Buddha. Pengaruh mitologi Hindu dan Buddha
+                dapat diamati dari kesamaan beberapa mitos lokal di Indonesia.
+                Beberapa suku di Indonesia memiliki kisah tentang tokoh
+                mitologis dengan nama yang sama, tetapi dengan versi yang
+                berbeda. Misalnya Batara Guru dalam mitologi Batak, Bali, dan
+                Jawa; Dewi Sri dalam mitologi Sunda dan Bali.
+              </p>
+            </div>
+            <div class="side2">
+              <div
+                style="
+                  background-color: #fef6e4;
+                  width: auto;
+                  height: auto;
+                  display: flex;
+                  padding: 15px;
+                  padding-left: 5px;
+                  padding-right: 5px;
+                  padding-top: 10px;
+                "
+              >
+                <img
+                  src="assets/img/home/indonesian-culture.jpg"
+                  style="
+                    width: 190px;
+                    height: 320px;
+                    position: relative;
+                    margin: auto;
+                  "
+                />
+              </div>
+              <div
+                style="
+                  width: 250px;
+                  background-color: #fef6e4;
+                  display: flex;
+                  margin: auto;
+                "
+              >
+                <span
+                  style="position: relative; margin: auto; margin-bottom: 20px"
+                  >Budaya Indonesia</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tentang" id="sclTarg">
+          <div
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <div
+              style="
+                text-align: center;
+                background-color: #efc60e;
+                width: 350px;
+                border-radius: 12px;
+                border-style: solid;
+                border-color: #2a1900;
+                position: relative;
+                top: -20px;
+              "
+            >
+              <h2 style="font-family: baskerville">TENTANG</h2>
+            </div>
+          </div>
+
+          <hr style="position: relative; top: -10px" />
+          <div>
+            <p style="margin: 0px 20px 0px 20px; margin-bottom: 40px">
+              About Wiki Nusantara adalah platform ensiklopedia digital yang
+              dibangun untuk menghadirkan kembali kekayaan budaya Indonesia
+              dalam bentuk yang lebih hidup, modern, dan mudah diakses. Website
+              ini lahir dari kesadaran bahwa warisan mitologi, legenda, dan
+              tradisi di seluruh Nusantara sangat luas, namun belum tersaji
+              secara menarik di ruang digital. Banyak cerita dan pengetahuan
+              lokal yang berharga, tetapi masih tersebar dan jarang dikemas
+              dalam format visual yang nyaman untuk generasi masa kini. Melalui
+              penyajian yang lebih interaktif, Wiki Nusantara berupaya menjadi
+              ruang yang mempertemukan tradisi dengan teknologi. Informasi tidak
+              hanya disajikan sebagai teks, tetapi didukung dengan tampilan yang
+              lebih dinamis sehingga pengalaman membaca menjadi lebih
+              menyenangkan. Dengan demikian, pembaca—terutama generasi
+              muda—dapat menikmati, mempelajari, sekaligus melestarikan
+              cerita-cerita leluhur kita tanpa merasa bosan. Selain menjadi
+              pusat informasi budaya, Wiki Nusantara juga dibuat sebagai proyek
+              pembelajaran dalam bidang desain web. Proses pengembangannya
+              melibatkan penerapan teknologi web modern, kolaborasi tim, serta
+              pemahaman mengenai pentingnya desain antarmuka dalam meningkatkan
+              minat baca. Harapannya, platform ini dapat berkembang menjadi
+              referensi digital yang kredibel, inspiratif, dan relevan di era
+              informasi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      style="
+        background: #1a1a1a;
+        color: #ccc;
+        padding: 30px 20px;
+        text-align: left;
+        font-size: 0.85em;
+        line-height: 1.6;
+      "
+    >
+      <div style="max-width: 1200px; margin: 0 auto">
+        Copyright © 2025 Nusantara Wiki. Powered by Kelompok 14. All Rights
+        Reserved.
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // HAL PANEL
+        const halPanel = document.getElementById("halPanl");
+        const halToggle = document.getElementById("halTogl");
+
+        halToggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          halPanel.classList.toggle("is-open");
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!halPanel.contains(e.target) && !halToggle.contains(e.target)) {
+            halPanel.classList.remove("is-open");
+          }
+        });
+
+        // SMOOTH SCROLL
+        const sclButt = document.getElementById("sclButt");
+        const sclTarg = document.getElementById("sclTarg");
+
+        sclButt.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const targetPosition =
+            sclTarg.getBoundingClientRect().top + window.pageYOffset;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        });
+
+        //  ANIMASI PINTU DAN NAVIGASI
+        const transitionDuration = 550; // Waktu tunggu setelah animasi 0.5s
+
+        // 1. Tombol Region (.halButt)
+        document.querySelectorAll(".halButt").forEach((button) => {
+          button.addEventListener("click", function (e) {
+            // Ambil kolom dan elemen pintu
+            const fcol = this.closest(".fcol");
+            const pintunya = fcol.querySelector(".pintunya");
+
+            // Cek apakah ada link di parent-nya
+            const linkElement = this.closest("a");
+            if (linkElement) {
+              const targetUrl = linkElement.getAttribute("href");
+
+              if (targetUrl) {
+                e.preventDefault(); // Cegah navigasi instan
+
+                // Tampilkan animasi buka pintu
+                pintunya.classList.add("buka");
+
+                // Navigasi setelah animasi selesai
+                setTimeout(() => {
+                  window.location.href = targetUrl;
+                }, transitionDuration);
+              }
+            }
+          });
+        });
+
+        // 2. Bingkai Pintu (.pintuFrame)
+        document.querySelectorAll(".pintuFrame").forEach((frame) => {
+          frame.addEventListener("click", function (e) {
+            // Ambil kolom dan elemen pintu
+            const fcol = this.closest(".fcol");
+            const pintunya = fcol.querySelector(".pintunya");
+
+            // Cek apakah ada link di parent-nya
+            const linkElement = this.closest("a");
+            if (linkElement) {
+              const targetUrl = linkElement.getAttribute("href");
+
+              if (targetUrl) {
+                e.preventDefault(); // Cegah navigasi instan
+
+                // Tampilkan animasi buka pintu
+                pintunya.classList.add("buka");
+
+                // Navigasi setelah animasi selesai
+                setTimeout(() => {
+                  window.location.href = targetUrl;
+                }, transitionDuration);
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

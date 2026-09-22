@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #1a3a52 0%, #2d5a7b 50%, #f5f5f5 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: url("../img/shared/header.png");
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.header-title {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 2.8em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 260px;
+  background: none;
+  border: none;
+  color: black;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  z-index: 3;
+}
+
+.back-button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  background: white;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
+}
+
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 700px;
+  align-items: start;
+  margin-top: 30px;
+}
+
+.social-section h2 {
+  font-size: 1.4em;
+  color: black;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: px;
+  font-size: 0.95em;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.google-btn {
+  background: #dddcdc;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.google-btn:hover {
+  background: #f7f7f7;
+}
+
+.facebook-btn {
+  background: #3b5998;
+  color: white;
+}
+
+.facebook-btn:hover {
+  background: #166fe5;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+}
+
+.icon {
+  font-size: 1.3em;
+}
+
+.form-section h2 {
+  font-size: 1.4em;
+  color: black;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  background: #f9f9f9;
+  color: #666;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.form-group input:focus {
+  outline: none;
+  background: #e8d9c1;
+  border-color: #b8a878;
+}
+
+.signin-btn {
+  width: 100%;
+  padding: 14px;
+  background: gray;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 700;
+  color: #999;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+}
+
+.signin-btn:hover {
+  background: #a39568;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.register-link a {
+  color: red;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.register-link a:hover {
+  color: #a01830;
+}
+
+.footer {
+  background: #1a1a1a;
+  color: #ccc;
+  padding: 30px 20px;
+  text-align: left;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #f1d58b;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .item-details-content {
+            display: flex;
+            gap: 20px;
+            background-color: #f3e4cf;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 900px;
+        }
+
+        .img-drop {
+            width: 190px;
+            border-radius: 8px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .item-text-area {
+            flex: 1;
+        }
+
+        .text-desc {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .detail-label {
+            font-weight: bold;
+        }
+
+        .button-custom:hover {
+            background-color: rgb(199, 160, 118);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="item-details-content">
+        <img src="../assets/img/jawa/prambanan.jpg" 
+            alt="Candi Prambanan Detail" 
+            class="img-drop"/>
+
+        <div class="item-text-area">
+            <p class="text-desc">
+                Candi Prambanan adalah kompleks candi Hindu terbesar di Indonesia 
+                yang terletak di perbatasan antara Daerah Istimewa Yogyakarta dan 
+                Jawa Tengah. Dibangun pada abad ke-9 M, candi ini dipersembahkan 
+                untuk Trimurti, tiga dewa utama dalam agama Hindu: 
+                <strong>Brahma</strong> (pencipta), <strong>Wishnu</strong> (pemelihara), 
+                dan <strong>Siwa</strong> (perusak).
+            </p>
+
+            <p>
+                <span class="detail-label">◎ Lokasi:</span> Desa Bokoharjo, Kecamatan Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta <br>
+                <span class="detail-label">◎ Koordinat Geografis:</span> -7.752222, 110.491667
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
